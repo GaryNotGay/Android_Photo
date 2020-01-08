@@ -3,7 +3,7 @@
 # @Author  :  lijishi
 # @Contact :  lijishi@emails.bjut.edu.cn
 # @Software:  Pycharm & Python 3.7
-# @EditTime:  Jan 7, 2020
+# @EditTime:  Jan 8, 2020
 # @Version :  1.0
 # @describe:  GUI of Control MIUI Photoed
 # @LICENSE :  GNU GENERAL PUBLIC LICENSE Version 3
@@ -23,36 +23,6 @@ from tkinter import *
 from picture import Icon
 from picture import Gif
 
-'''
-def Photo():
-    num_limit = int(photo_num.get())
-    time_gap = int(photo_time.get())
-    path = str(adb_path.get())
-    have_num.set('0')
-    last_num.set(num_limit)
-    last_time.set(num_limit * time_gap)
-    start_camera = path + r'\adb shell am start -a android.media.action.STILL_IMAGE_CAMERA'
-    os.system(start_camera)
-    num = 0
-    while True:
-        if num == num_limit:
-            break
-        num += 1
-        start_ticks = time.time()
-        have_num.set(num)
-        last_num.set(num_limit - num)
-        last_time.set((num_limit - num) * time_gap)
-        
-#        while True:
-#            end_ticks = time.time()
-#            gap_ticks = end_ticks - start_ticks
-#            if gap_ticks >= time_gap:
-#                break
-        
-        time.sleep(time_gap)
-        Shutter(path)
-    Finish(path)
-'''
 num = 0
 def Photo():
     num_limit = int(photo_num.get())
@@ -122,7 +92,7 @@ def About():
     os.remove('tmp.gif')
     ttk.Label(software_frame, text="Android Photo Version 1.0").grid(row=0, column=1, sticky = W)
     ttk.Label(software_frame, text="@Author    :   lijishi").grid(row=1, column=1, sticky = W)
-    ttk.Label(software_frame, text="@EditTime  :   Jan 7,2020").grid(row=2, column=1, sticky = W)
+    ttk.Label(software_frame, text="@EditTime  :   Jan 8,2020").grid(row=2, column=1, sticky = W)
 
     copyright_frame = ttk.LabelFrame(about_window, text='LICENSE Info')
     copyright_frame.grid(row=5, column=0, rowspan=3, columnspan=4, padx=50, pady=5)
