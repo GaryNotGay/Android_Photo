@@ -11,5 +11,4 @@ python 3.7.5
  
 ·Warning     
 Please be sure to use the software with the adb folder in source code    
-Or you can get by BaiDuNetDisk     
-Url:https://pan.baidu.com/s/1t8zKYg1bzJBJdNp9vDnH1Q Code:wrmk    
+Or you can get by BaiDuNetDisk Url: https://pan.baidu.com/s/1t8zKYg1bzJBJdNp9vDnH1Q Code: wrmk    
