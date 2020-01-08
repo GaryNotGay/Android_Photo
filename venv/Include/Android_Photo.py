@@ -9,12 +9,13 @@
 # @LICENSE :  GNU GENERAL PUBLIC LICENSE Version 3
 
 # References
-#
+# https://blog.csdn.net/fancy10255/article/details/88965926
 
 import base64
 import time
 import re
 import os
+import subprocess
 import tkinter as tk
 import tkinter.messagebox
 import tkinter.filedialog
@@ -23,25 +24,26 @@ from tkinter import *
 from picture import Icon
 from picture import Gif
 
-num = 0
+num = -1
 def Photo():
     num_limit = int(photo_num.get())
     time_gap = int(photo_time.get())
     path = str(adb_path.get())
     global num
+    num += 1
     have_num.set(num)
     last_num.set(num_limit-num)
     last_time.set((num_limit-num) * time_gap)
-    num += 1
+
     start_camera = path + r'\adb shell am start -a android.media.action.STILL_IMAGE_CAMERA'
-    os.system(start_camera)
+    #os.system(start_camera)
+    subprocess.run(start_camera, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     Shutter(path)
-    print('!')
     if num == num_limit:
         have_num.set(num)
         last_num.set(num_limit - num)
         last_time.set((num_limit - num) * time_gap)
-        num = 0
+        num = -1
         Finish(path)
     else:
         main_window.after(time_gap * 1000, Photo)
@@ -51,8 +53,9 @@ def Shutter(path):
     #start_camera = path + r'\adb shell am start -a android.media.action.STILL_IMAGE_CAMERA'
     shutter_command = path + r'\adb shell input keyevent 27'
     #os.system(start_camera)
-    os.system(shutter_command)
-    #display_frame.after(10, Refresh)
+    #os.system(shutter_command)
+
+    subprocess.run(shutter_command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 def SelectADBPath():
     path_ = tkinter.filedialog.askopenfilename()
@@ -101,7 +104,8 @@ def About():
 
 def Finish(path):
     back_command = path + r'\adb shell input keyevent 4'
-    os.system(back_command)
+    #os.system(back_command)
+    subprocess.run(back_command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     tk.messagebox.showinfo("Finish", "拍照完成！")
 
 def Tips():
