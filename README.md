@@ -2,7 +2,9 @@
 
 ·V 1.0   
 Time-lapse camera on Android phone controlled by computer   
-Resolve runtime CMD issues   
+Resolve runtime CMD issues  
+·V 1.1   
+Add Default Address        
 
 ·Exploitation Environment   
 Windows10 1903   
